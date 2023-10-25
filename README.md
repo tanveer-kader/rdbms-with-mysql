@@ -1,6 +1,6 @@
 # Database Management with MySQL
 
-### Databases
+## Databases
 
 Create a database
 
@@ -15,7 +15,7 @@ To use a database
 > Use the myDB database
 
 ```
-USE DATABASE myDB;
+USE myDB;
 ```
 
 To drop a database
@@ -42,3 +42,5 @@ To enable modification: Default mode
 ```
 ALTER DATABASE myDB READ ONLY = 0;
 ```
+
+## Tables
