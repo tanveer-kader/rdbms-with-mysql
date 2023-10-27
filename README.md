@@ -234,3 +234,86 @@ SELECT *
 FROM employees
 WHERE hire_date IS NOT NULL;
 ```
+
+## Update: set
+
+Change data in a row
+
+> set employee id 7 to the last employee
+
+```sql
+UPDATE employees
+SET employee_id = 7
+WHERE first_name = "Abid";
+```
+
+Change multiple columns at a time
+
+> set hourly_pay and hire_date to last employee
+
+```sql
+UPDATE employees
+SET hourly_pay = 10.25,
+	hire_date = "2023-01-07"
+WHERE employee_id = 7;
+```
+
+Set a field to null
+
+> set hire_date null of employee 7
+
+```sql
+UPDATE employees
+SET hire_date = NULL
+WHERE employee_id = 7;
+```
+
+Set same value in a column
+
+> set same hourly_pay for all the employees
+
+```sql
+UPDATE employees
+SET hourly_pay = 10.25;
+```
+
+## Delete
+
+Delete a row from a table
+
+> Delete employee_id 7
+
+```sql
+DELETE FROM employees
+WHERE employee_id = 7;
+```
+
+Delete all rows from a table
+
+> delete all rows from employees
+
+```sql
+DELETE FROM employees;
+```
+
+## Autocommit, Commit, Rollback
+
+`Autocommit`: saves automaticaly.
+
+> It maybe harmful for any accidental query run.
+
+```sql
+SET AUTOCOMMIT = OFF;
+```
+
+`Commit`: saving manually, creates a savepoint
+
+```sql
+COMMIT;
+```
+
+`Rollback`: get to previous state.
+
+```sql
+ROLLBACK;
+```
