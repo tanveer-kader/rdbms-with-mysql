@@ -1,6 +1,6 @@
 # Database Management with MySQL
 
-## Databases
+## Database: create, use, modify
 
 Create a database
 
@@ -43,7 +43,7 @@ To enable modification: Default mode
 ALTER DATABASE myDB READ ONLY = 0;
 ```
 
-## Tables
+## Tables: create, insert, modify
 
 Create a table
 
@@ -156,4 +156,81 @@ Insert data into selected columns
 ```sql
 INSERT INTO employees(employee_id, first_name, last_name)
 VALUES(2, "Abid", "Khan");
+```
+
+## Select: from, where
+
+Select all data from a table
+
+> select all data from employees
+
+```sql
+SELECT * FROM employees;
+```
+
+Select prefered columns
+
+> select only first_name & last_name from employees
+
+```sql
+SELECT first_name, last_name
+FROM employees
+```
+
+Select specific data using `where` clause
+
+> select the empoyee id 2
+
+```sql
+SELECT *
+FROM employees
+WHERE employee_id = 2;
+```
+
+> select whose first name is Xin
+
+```sql
+SELECT *
+FROM employees
+WHERE first_name = "Xin";
+```
+
+> select those who get paid more than 15
+
+```sql
+SELECT *
+FROM employees
+WHERE hourly_pay >= 15;
+```
+
+> select those who are hired before 2023-01-04
+
+```sql
+SELECT *
+FROM employees
+WHERE hire_date <= "2023-01-04";
+```
+
+> select all except employee id 3
+
+```sql
+SELECT *
+FROM employees
+WHERE employee_id != 3;
+```
+
+> select rows with hire date null
+
+```sql
+SELECT *
+FROM employees
+WHERE hire_date IS NULL;
+```
+
+> select rows without null
+
+```sql
+SELECT *
+FROM employees
+WHERE hire_date IS NOT NULL;
 ```
