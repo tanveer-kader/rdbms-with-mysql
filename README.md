@@ -2,7 +2,7 @@
 
 ## Database: create, use, modify
 
-Create a database
+`CREATE` : Create a database
 
 > create a database named myDB
 
@@ -10,15 +10,15 @@ Create a database
 CREATE DATABASE myDB;
 ```
 
-To use a database
+`USE` : use a database
 
-> Use the myDB database
+> use the myDB database
 
 ```sql
 USE myDB;
 ```
 
-To drop a database
+`DROP`: delete a database
 
 > delete myDB database
 
@@ -26,8 +26,7 @@ To drop a database
 DROP DATABASE myDB;
 ```
 
-Disable Modification  
-cannot make any modifications, can access data only.
+`READ ONLY`: disable modification.cannot make any modifications, can access data only.
 
 > make myDB read only.
 
@@ -45,7 +44,7 @@ ALTER DATABASE myDB READ ONLY = 0;
 
 ## Tables: create, insert, modify
 
-Create a table
+`CREATE`: Create a table
 
 ```sql
 CREATE TABLE employee(
@@ -57,7 +56,7 @@ CREATE TABLE employee(
 )
 ```
 
-Rename a table
+`RENAME`: Rename a table
 
 > rename employees table as workers
 
@@ -73,7 +72,7 @@ Let's get back to employees
 RENAME TABLE workers TO employees;
 ```
 
-Add another column to a table
+`ADD`: Add another column to a table
 
 > add phone_number to employees
 
@@ -82,7 +81,7 @@ ALTER TABLE employees
 ADD phone_number VARCHAR(15);
 ```
 
-Rename a column
+`RENAME`: Rename a column
 
 > rename phone_number as email
 
@@ -91,7 +90,7 @@ ALTER TABLE employees
 RENAME COLUMN phone_number to email;
 ```
 
-Change column type
+`MODIFY`: Change column
 
 > change the data type of email
 
@@ -100,7 +99,7 @@ ALTER TABLE employees
 MODIFY COLUMN email VARCHAR(100);
 ```
 
-Move a column
+`AFTER`: Move a column
 
 > move email next to last_name
 
@@ -118,7 +117,7 @@ MODIFY email VARCHAR(100)
 FIRST;
 ```
 
-Drop a column
+`DROP`: Drop a column
 
 > drop the email column
 
@@ -127,7 +126,7 @@ ALTER TABLE employees
 DROP COLUMN email;
 ```
 
-Insert a row to table
+`INSERT INTO`Insert a row to table
 
 > insert data/row to employees
 
@@ -136,7 +135,7 @@ INSERT INTO employees
 VALUES(1, "Tanveer", "Kader", 25.50, "2023-01-01");
 ```
 
-Insert multiple rows at a time
+`VALUES`: Insert multiple rows at a time
 
 > insert some other data/rows to employees
 
@@ -160,7 +159,7 @@ VALUES(2, "Abid", "Khan");
 
 ## Select: from, where
 
-Select all data from a table
+`SELECT`: Select all data from a table
 
 > select all data from employees
 
@@ -237,7 +236,7 @@ WHERE hire_date IS NOT NULL;
 
 ## Update: set
 
-Change data in a row
+`UPDATE`: Change data in a row
 
 > set employee id 7 to the last employee
 
@@ -247,7 +246,7 @@ SET employee_id = 7
 WHERE first_name = "Abid";
 ```
 
-Change multiple columns at a time
+`SET` :Change multiple columns at a time
 
 > set hourly_pay and hire_date to last employee
 
@@ -279,7 +278,7 @@ SET hourly_pay = 10.25;
 
 ## Delete
 
-Delete a row from a table
+`DELETE`: Delete a row from a table
 
 > Delete employee_id 7
 
