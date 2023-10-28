@@ -316,3 +316,136 @@ COMMIT;
 ```sql
 ROLLBACK;
 ```
+
+## Date Time
+
+> create a datetime table
+
+```sql
+CREATE TABLE datetimetable(
+	my_date DATE,
+    my_time TIME,
+    my_datetime DATETIME
+);
+```
+
+> insert current date and time
+
+```sql
+INSERT INTO datetimetable
+VALUES ( 	CURRENT_DATE(),
+			CURRENT_TIME(),
+            NOW()
+);
+```
+
+> insert next day
+
+```sql
+INSERT INTO datetimetable(my_date)
+VALUES ( CURRENT_DATE() + 1 );
+```
+
+> insert previous day
+
+```sql
+INSERT INTO datetimetable(my_date)
+VALUES ( CURRENT_DATE() - 1 );
+```
+
+## Unique
+
+> create a product table where product_name is unique
+
+```sql
+CREATE TABLE products(
+	product_id INT,
+    product_name VARCHAR(25) UNIQUE,
+    price DECIMAL(4,2)
+);
+```
+
+> its possible to make a unique feature of a previously created table
+
+```sql
+ALTER TABLE products
+ADD CONSTRAINT
+UNIQUE(product_name);
+```
+
+### NOT NULL
+
+> make field must be filled
+
+```sql
+CREATE TABLE products(
+	product_id INT,
+    product_name VARCHAR(25) UNIQUE,
+    price DECIMAL(4,2) NOT NULL
+);
+```
+
+> cannot do this. The price must be filled.
+
+```sql
+INSERT INTO products(product_id, product_name)
+VALUES(1, "Aloo");
+```
+
+> add not null to a existing table
+
+```sql
+ALTER TABLE products
+MODIFY price DECIMAL(4,2) NOT NULL;
+```
+
+## CHECK
+
+to provide restrictions of the values in columns
+
+> create a employee table where minimum wage is 10.00 per hour.
+
+```sql
+CREATE TABLE employees(
+	employee_id INT,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    hourly_pay DECIMAL(5,2),
+    hire_date DATE,
+    CHECK(hourly_pay >= 10.00)
+);
+```
+
+> better to give it a name for future use
+
+```sql
+CREATE TABLE employees(
+	employee_id INT,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    hourly_pay DECIMAL(5,2),
+    hire_date DATE,
+    CONSTRAINT minimum_wage CHECK(hourly_pay >= 10.00)
+);
+```
+
+> add check to existing table
+
+```sql
+ALTER TABLE employees
+ADD CONSTRAINT chk_hourly_pay CHECK (hourly_pay >= 10.00);
+```
+
+> now less than 10.00 will show up error as a violation. This will not insert data to table
+
+```sql
+INSERT INTO employees
+values(1, "MD", "RIMON", 5, "2023-10-28");
+```
+
+> delete a check
+
+```sql
+ALTER TABLE employees
+DROP CHECK  chk_hourly_pay;
+```
